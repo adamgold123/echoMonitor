@@ -17,6 +17,7 @@ var Gpio = require('onoff').Gpio;
 var redled = new Gpio(22, 'out');
 var greenled = new Gpio(27, 'out');
 var lamp = new Gpio(17, 'out');
+var blueled = new Gpio(27, 'out');
 // ROUTES
 // ==============================================
 
@@ -39,6 +40,16 @@ app.post('/echoData', function(req, res){
   if (summary.indexOf("off the red light")!=-1) {
     redled.writeSync(0);
   }
+if (summary.indexOf("on all lights") !=-1) {
+redled.writeSync(1)
+greenled.writeSync(1)
+blueled.writeSync(1)
+}
+if (summary.indexOf("off all lights") !=+1) {
+redled.writeSync(0);
+greenled.writeSync(0);
+blueled.writeSync(0);
+
 
   res.sendStatus(200);
 });
