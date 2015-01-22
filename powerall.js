@@ -14,9 +14,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 
 var Gpio = require('onoff').Gpio;
-var redled = new Gpio(22, 'out');
-var greenled = new Gpio(27, 'out');
-var lamp = new Gpio(17, 'out');
+var redled = new Gpio(17, 'out');
+var greenled = new Gpio(15, 'out');
+var lamp = new Gpio(16, 'out');
 var blueled = new Gpio(27, 'out');
 // ROUTES
 // ==============================================
